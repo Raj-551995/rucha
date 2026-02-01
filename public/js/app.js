@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Demo credentials
-    const DEMO_USER = 'admin';
-    const DEMO_PASS = 'password';
+    const DEMO_USER = 'Rucha';
+    const DEMO_PASS = 'raj';
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Signing in...';
