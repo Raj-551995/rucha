@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rucha — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Welcome</h1>
+      <p id="welcomeText">Welcome to your dashboard.</p>
+      <div class="actions">
+        <button id="logoutBtn">Sign out</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Simple session guard
+    const loggedIn = localStorage.getItem('rucha_logged_in');
+    if (!loggedIn || loggedIn !== 'true') {
+      window.location.href = '/';
+    } else {
+      const user = localStorage.getItem('rucha_user') || 'User';
+      document.getElementById('welcomeText').textContent = `Hello, ${user}! This is a static dashboard for CI/CD practice.`;
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('rucha_logged_in');
+      localStorage.removeItem('rucha_user');
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>
